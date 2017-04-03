@@ -46,7 +46,7 @@ class App extends React.Component {
 	
 	handleScroll = () => {
 		var div_ids = ['taskbox-1', 'taskbox-2', 'taskbox-3', 'taskbox-4'];
-		var position_top_limit = 70;
+		var position_top_limit = 65;
 
 		var base_div = document.getElementById('sheet-answer-form');
 		var fixed_div = document.getElementById('affix-sidebar');

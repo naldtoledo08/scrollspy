@@ -1,8 +1,7 @@
 import React from 'react';
 import ScrollSpyItem from './ScrollSpyItem';
 
-const SideBarScrollSpy = (props) =>{
-		
+const SideBarScrollSpy = (props) =>{		
 		
 		const currentYPosition = () => {
 			// Firefox, Chrome, Opera, Safari
@@ -15,7 +14,6 @@ const SideBarScrollSpy = (props) =>{
 			return 0;
 		}
 
-
 		const elementYPosition = (element_id) => {
 			var elm = document.getElementById(element_id);
 			var y = elm.offsetTop -58; //for adjustment on scroll
@@ -24,16 +22,14 @@ const SideBarScrollSpy = (props) =>{
 				node = node.offsetParent;
 				y += node.offsetTop;
 			} return y;
-		}
-		
+		}		
 		
 		const pageScroll = (leapY, timer_speed) =>{
 			//window.scrollTo(0, leapY);
 			setTimeout(function(){
 				window.scrollTo(0, leapY);
 			}, timer_speed);
-		}
-		
+		}		
 	
 		const smoothScroll = (element_id) => {
 			var startY = currentYPosition();
