@@ -1,4 +1,5 @@
 import React from 'react';
+import ScrollSpyItem from './ScrollSpyItem';
 
 const SideBarScrollSpy = (props) =>{
 		
@@ -48,20 +49,11 @@ const SideBarScrollSpy = (props) =>{
 			var timer = 0, i;
 			if (stopY > startY) {
 				for (i=startY; i<stopY; i+=step ) {
-					//setTimeout("window.scrollTo(0, "+leapY+")", timer * speed);
-					//console.log(timer * speed);
-					//setTimeout(function(){
-						//window.scrollTo(0, leapY);
-					//}, timer * speed);
 					pageScroll(leapY, (timer * speed));
 					leapY += step; if (leapY > stopY) leapY = stopY; timer++;
 				} return;
 			}
 			for (i=startY; i>stopY; i-=step ) {
-				//setTimeout("window.scrollTo(0, "+leapY+")", timer * speed);
-				//setTimeout(function(){
-						//window.scrollTo(0, leapY);
-					//}, timer * speed);
 				pageScroll(leapY, (timer * speed));
 				leapY -= step; if (leapY < stopY) leapY = stopY; timer++;
 			}
@@ -69,8 +61,7 @@ const SideBarScrollSpy = (props) =>{
 		
 		const onClickScroll = (e) =>{
 
-			e.preventDefault();			
-			//scrollToTop(1000);
+			e.preventDefault();
 			smoothScroll(e.target.getAttribute("data-id"));
 			
 			return false;
@@ -85,18 +76,16 @@ const SideBarScrollSpy = (props) =>{
                 <div className="box-body">                  
                   <div id="scrollspy-menu">
                     <ul className="nav nav-scrollspy-menu nav-stacked">
-                      <li id="li-taskbox-1" className="test">
-                        <a href="#taskbox-1" data-id="taskbox-1" onClick={onClickScroll}><span className="prefix">1</span> One </a>
-                      </li>
-                      <li id="li-taskbox-2" className="test">
-                        <a href="#taskbox-2" data-id="taskbox-2" onClick={onClickScroll}><span className="prefix">2</span> Two </a>
-                      </li>
-                      <li id="li-taskbox-3" className="test">
-                        <a href="#taskbox-3" data-id="taskbox-3" onClick={onClickScroll}><span className="prefix">3</span> Three </a>
-                      </li>
-                      <li id="li-taskbox-4" className="test">
-                        <a href="#taskbox-4" data-id="taskbox-4" onClick={onClickScroll}><span className="prefix">4</span> Four </a>
-                      </li>
+
+                    	<ScrollSpyItem id="taskbox-1" title="One" prefix="1"
+                    		onClickScroll={onClickScroll}/>
+                    	<ScrollSpyItem id="taskbox-2" title="Two" prefix="2"
+                    		onClickScroll={onClickScroll}/>
+                    	<ScrollSpyItem id="taskbox-3" title="Three" prefix="3"
+                    		onClickScroll={onClickScroll}/>
+                    	<ScrollSpyItem id="taskbox-4" title="Four" prefix="4"
+                    		onClickScroll={onClickScroll}/>
+                    
                     </ul>
                   </div>
                 </div>
